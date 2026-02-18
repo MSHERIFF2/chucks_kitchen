@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Island_Moments } from "next/font/google";
+// import { Geist, Geist_Mono, Island_Moments } from "next/font/google";
+import { Island_Moments } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
 const island = Island_Moments({
   subsets: ["latin"],
