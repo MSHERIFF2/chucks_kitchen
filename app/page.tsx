@@ -1,11 +1,7 @@
+import Home from "@/components/home"
 
-
-export default function Home() {
+export default function Page() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white font-sans ">
-      <nav>
-        <h1 className="text-black font-bold text-xl">Welcome to chuks kitchen</h1>
-      </nav>
-    </div>
+    <Home/>
   );
 }

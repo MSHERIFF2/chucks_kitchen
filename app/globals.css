@@ -8,9 +8,9 @@
  
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
@@ -29,4 +29,7 @@ body {
 }
 .font-poppins {
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+}
+.font-inter {
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
-import { Island_Moments, Jost, Poppins, } from "next/font/google";
+import { Island_Moments, Jost, Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
+
 
 
 
@@ -13,13 +14,18 @@ const island = Island_Moments({
 });
 const jost =Jost({
   subsets: ["latin"],
-  weight: "400",
+  weight: "100",
   variable: "--font-jost",
 });
 const poppins =Poppins({
   subsets: ["latin"],
-  weight: "400",
+  weight: "100",
   variable: "--font-poppins",
+});
+const inter =Inter({
+  subsets: ["latin"],
+  weight: "100",
+  variable: "--font-inter",
 });
 
 
@@ -35,8 +41,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${island.variable} ${jost.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${island.variable} ${jost.variable} ${poppins.variable} ${inter.variable}`}>
       <body>
+     
         {children}
         <Footer />
       </body>
