@@ -24,7 +24,7 @@ const poppins =Poppins({
 });
 const inter =Inter({
   subsets: ["latin"],
-  weight: "100",
+  weight: "400",
   variable: "--font-inter",
 });
 
