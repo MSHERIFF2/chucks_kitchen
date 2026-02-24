@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex justify-between">
       <div>
-        <Image src="/onboardingImage.png" width={720} height={720} />
+        <Image src="/onboardingImage.png" width={720} height={720} alt="Hero picture" />
       </div>
       <div className=" w-3/5 ">
         <div className="flex justify-between items-center bg-[#ffffff] my-[1.75rem] mx-[6rem]">
