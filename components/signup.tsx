@@ -18,7 +18,7 @@ export default function Signup() {
             Chuks Kitchen
           </h1>
           <p className="text-[1.5rem] leading-[34px] font-inter font-medium w-[404px] text-center">
-            Create Your Account
+           Your journey to delicious, authentic Nigerian meals starts here. Sign up or log in to order your favorites today!
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function Signup() {
               Chuks Kitchen
             </h1>
             <p className="font-inter font-medium text-[24px] text-gray-700">
-              Login your Account
+              Create Your Account
             </p>
           </div>
 
@@ -148,7 +148,7 @@ export default function Signup() {
 
           <div className="flex gap-x-2 font-inter justify-center text-sm">
             <span>Already have an account? </span>
-            <Link href="/signUp" className="text-[#1C7FF9] font-semibold hover:underline">
+            <Link href="/signIn" className="text-[#1C7FF9] font-semibold hover:underline">
               Sign In
             </Link>
           </div>
