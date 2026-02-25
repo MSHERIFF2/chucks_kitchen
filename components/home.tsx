@@ -3,11 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { Utensils, Truck } from "lucide-react";
 
+// 1. Define types for the helper component props to fix the build error
+interface FeatureRowProps {
+  icon: React.ReactElement;
+  text: string;
+}
+
 export default function Home() {
   return (
-    // Changed flex-row to flex-col for mobile, lg:flex-row for desktop
     <div className="flex flex-col lg:flex-row min-h-screen">
-      {/* Left side Image - Hidden on very small screens or resized */}
+      {/* Left side Image */}
       <div className="w-full lg:w-1/2 h-[300px] lg:h-auto relative">
         <Image
           src="/onboardingImage.png"
@@ -19,9 +24,10 @@ export default function Home() {
       </div>
 
       {/* Right side Content */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-between py-6 lg:py-12">
-        {/* Nav Part - Adjusted margins for mobile (mx-6) vs desktop (mx-16) */}
-        <div className="flex justify-between items-center bg-white mb-12 mx-6 lg:mx-16">
+      <div className="w-full lg:w-1/2 flex flex-col justify-between py-6 lg:py-12 bg-white">
+        
+        {/* Nav Part */}
+        <div className="flex justify-between items-center mb-12 mx-6 lg:mx-16">
           <Link href="/">
             <h1 className="text-[#FF7A18] font-island text-[2rem] lg:text-[2.55rem] leading-tight">
               Chuks Kitchen
@@ -47,7 +53,6 @@ export default function Home() {
           </p>
 
           {/* Features Section */}
-          {/* This container stacks on mobile and spreads out on desktop */}
           <div className="flex flex-col md:flex-row md:flex-wrap gap-y-6 gap-x-8 mt-4">
             <FeatureRow icon={<Utensils />} text="Freshly Prepared" />
             <FeatureRow icon={<Utensils />} text="Support Local Business" />
@@ -55,7 +60,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Buttons - Mobile: Full width, Desktop: Specific width */}
+        {/* Buttons */}
         <div className="flex flex-col gap-4 mt-12 mx-6 lg:mx-16">
           <button className="bg-[#FF7A18] text-white py-4 px-6 rounded-[10px] font-semibold text-lg hover:bg-[#e66d15] transition-all">
             Start Your Order
@@ -65,20 +70,14 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Copy Right Section */}
+        {/* Footer */}
         <div className="mx-6 lg:mx-16 mt-12 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
           <span className="text-gray-500 text-sm">© 2024 Chuks Kitchen.</span>
           <div className="flex gap-6">
-            <Link
-              href="/privacy"
-              className="text-[#64B5F6] text-sm hover:underline"
-            >
+            <Link href="/privacy" className="text-[#64B5F6] text-sm hover:underline">
               Privacy Policy
             </Link>
-            <Link
-              href="/terms"
-              className="text-[#64B5F6] text-sm hover:underline"
-            >
+            <Link href="/terms" className="text-[#64B5F6] text-sm hover:underline">
               Terms of Service
             </Link>
           </div>
@@ -88,15 +87,15 @@ export default function Home() {
   );
 }
 
-// Helper to keep code clean
-function FeatureRow({ icon, text }) {
+// 2. Fixed Helper Component with TypeScript Types
+function FeatureRow({ icon, text }: FeatureRowProps) {
   return (
     <div className="flex gap-4 items-center">
       <div className="bg-[#FFE1C4] rounded-[13px] p-2 flex items-center justify-center w-11 h-11 shrink-0">
-        {/* Clone icon to apply specific Tailwind classes */}
-        {require("react").cloneElement(icon, {
+        {/* Safely clone the icon with updated classes */}
+        {React.cloneElement(icon, {
           className: "text-[#FF7A18] w-6 h-6",
-        })}
+        } as React.HTMLAttributes<SVGElement>)}
       </div>
       <span className="text-base font-medium text-gray-800">{text}</span>
     </div>
