@@ -8,7 +8,7 @@ export default function Homepage() {
       {/* Hero section */}
       <div className="relative h-screen w-full">
         <Image
-          src="/welcome.png"
+          src="/Welcome.png"
           alt="Welcome Background"
           fill
           className="object-cover -z-10 brightness-[0.63]"
