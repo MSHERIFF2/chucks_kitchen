@@ -1,103 +1,116 @@
-import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { Utensils, Truck } from "lucide-react";
-
-// 1. Define types for the helper component props to fix the build error
-interface FeatureRowProps {
-  icon: React.ReactElement;
-  text: string;
-}
+import CardPopular from "@/components/cardpopular";
+import CardChef from "@/components/cardchef";
 
 export default function Home() {
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen">
-      {/* Left side Image */}
-      <div className="w-full lg:w-1/2 h-[300px] lg:h-auto relative">
+    <div className="overflow-x-hidden">
+      {/* Hero section */}
+      <div className="relative h-screen w-full">
         <Image
-          src="/onboardingImage.png"
-          alt="Hero picture"
+          src="/Welcome.png"
+          alt="Welcome Background"
           fill
-          className="object-cover"
+          className="object-cover -z-10 brightness-[0.63]"
           priority
         />
-      </div>
 
-      {/* Right side Content */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-between py-6 lg:py-12 bg-white">
-        
-        {/* Nav Part */}
-        <div className="flex justify-between items-center mb-12 mx-6 lg:mx-16">
-          <Link href="/">
-            <h1 className="text-[#FF7A18] font-island text-[2rem] lg:text-[2.55rem] leading-tight">
-              Chuks Kitchen
-            </h1>
-          </Link>
-
-          <Link
-            href="/signIn"
-            className="border-2 border-[#1E88E5] text-[#1E88E5] text-sm lg:text-base font-semibold px-4 lg:px-8 py-2 lg:py-[0.9375rem] rounded-[10px] hover:bg-[#1E88E5] hover:text-white transition-colors"
-          >
-            Sign In
-          </Link>
-        </div>
-
-        {/* Heading & Text */}
-        <div className="flex flex-col mx-6 lg:mx-16 gap-6">
-          <h1 className="font-bold text-[1.75rem] lg:text-[2.5rem] leading-tight text-[#1F2937]">
-            Your Authentic Taste of Nigeria
+        <div className="relative z-10 flex flex-col items-center lg:items-start justify-center h-full px-6 lg:px-16 gap-6 lg:gap-10 text-center lg:text-left">
+          <h1 className="text-white font-bold text-3xl md:text-5xl lg:text-[48px] leading-tight lg:leading-[61px] font-inter w-full lg:w-3/5">
+            The Heart of Nigerian Home Cooking
           </h1>
-          <p className="text-[#4B5563] text-base lg:text-lg font-medium leading-relaxed">
-            Experience homemade flavors delivered fresh to your desk or home. We
-            bring the rich culinary heritage of Nigeria right to your doorstep.
-          </p>
-
-          {/* Features Section */}
-          <div className="flex flex-col md:flex-row md:flex-wrap gap-y-6 gap-x-8 mt-4">
-            <FeatureRow icon={<Utensils />} text="Freshly Prepared" />
-            <FeatureRow icon={<Utensils />} text="Support Local Business" />
-            <FeatureRow icon={<Truck />} text="Fast & Reliable Delivery" />
-          </div>
-        </div>
-
-        {/* Buttons */}
-        <div className="flex flex-col gap-4 mt-12 mx-6 lg:mx-16">
-          <button className="bg-[#FF7A18] text-white py-4 px-6 rounded-[10px] font-semibold text-lg hover:bg-[#e66d15] transition-all">
-            Start Your Order
-          </button>
-          <button className="text-[#1E88E5] bg-white py-4 px-6 rounded-[10px] font-semibold text-lg border-2 border-[#1E88E5] hover:bg-blue-50 transition-all">
-            Learn More About Us
+          <h3 className="text-white font-inter font-bold text-xl md:text-2xl lg:text-[32px] leading-snug lg:leading-[42px]">
+            Handcrafted with passion, delivered with care.
+          </h3>
+          <button className="bg-[#FF7A18] w-full max-w-[215px] h-[54px] rounded-[10px] py-[15px] text-white font-inter font-semibold text-[1rem] leading-[24px] hover:bg-[#e66d15] transition-all">
+            Discover what’s new
           </button>
         </div>
+      </div>
 
-        {/* Footer */}
-        <div className="mx-6 lg:mx-16 mt-12 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <span className="text-gray-500 text-sm">© 2024 Chuks Kitchen.</span>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="text-[#64B5F6] text-sm hover:underline">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-[#64B5F6] text-sm hover:underline">
-              Terms of Service
-            </Link>
-          </div>
+      {/* Popular Categories */}
+      <div className="bg-[#F3F4F6] w-full py-16 lg:py-24 px-6 lg:px-16 ">
+        <h1 className="text-center font-inter font-bold text-2xl lg:text-[32px] leading-tight text-[#1F2937] mb-12">
+          Popular Categories
+        </h1>
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-3 lg:gap-4 justify-center ">
+          <CardPopular title="Jollof Delights" image="/v1.png" />
+          <CardPopular title="Swallow & Soups" image="/v2.png" />
+          <CardPopular title="Grills & BBQ" image="/v3.png" />
+          <CardPopular title="Sweet Treats" image="/v4.png" />
+          <CardPopular title="Jollof Rice & Fried Chicken" image="/v5.png" />
+          <CardPopular title="Egusi Soup & Pounded Yam" image="/v6.png" />
         </div>
       </div>
-    </div>
-  );
-}
 
-// 2. Fixed Helper Component with TypeScript Types
-function FeatureRow({ icon, text }: FeatureRowProps) {
-  return (
-    <div className="flex gap-4 items-center">
-      <div className="bg-[#FFE1C4] rounded-[13px] p-2 flex items-center justify-center w-11 h-11 shrink-0">
-        {/* Safely clone the icon with updated classes */}
-        {React.cloneElement(icon, {
-          className: "text-[#FF7A18] w-6 h-6",
-        } as React.HTMLAttributes<SVGElement>)}
+      {/* Chef's Specials */}
+      <div className="bg-[#F3F4F6] w-full py-16 lg:py-24 px-6 lg:px-16">
+        <h1 className="text-center font-inter font-bold text-2xl lg:text-[32px] leading-tight text-[#1F2937] mb-12">
+          Chef&apos;s Specials
+        </h1>
+        <div className="flex gap-6 lg:gap-8 flex-wrap justify-center lg:justify-start">
+          <CardChef
+            price="3,500"
+            desc="A comforting and spicy soup with tender tilapia fish, a true Nigerian delicacy."
+            title="Spicy Tilapia Pepper Soup"
+            image="/v8.png"
+          />
+          <CardChef
+            price="3,500"
+            desc="Our signature Jollof rice, cooked to perfection, served with succulent fried chicken."
+            title="Jollof Rice & Fried Chicken"
+            image="/v1.png"
+          />
+          <CardChef
+            price="3,500"
+            desc="Our signature Jollof rice, cooked to perfection, served with succulent fried chicken."
+            title="Jollof Rice & Fried Chicken"
+            image="/v1.png"
+          />
+          <CardChef
+            price="3,500"
+            desc="Our signature Jollof rice, cooked to perfection, served with succulent Smoked chicken."
+            title="Jollof Rice & Smoked Chicken"
+            image="/v1.png"
+          />
+          <CardChef
+            price="3,500"
+            desc="Our signature Jollof rice, cooked to perfection, served with succulent fried chicken."
+            title="Jollof Rice & Fried Chicken"
+            image="/v5.png"
+          />
+          <CardChef
+            price="3,500"
+            desc="Rich and savory Egusi soup with assorted meats, paired with freshly pounded yam."
+            title="Egusi Soup & Pounded Yam"
+            image="/v6.png"
+          />
+        </div>
       </div>
-      <span className="text-base font-medium text-gray-800">{text}</span>
+
+      {/* New Menu Section */}
+      <div className="relative h-screen w-full">
+        <Image
+          src="/Desk.png"
+          alt="Desktop Background"
+          fill
+          className="object-cover -z-10 brightness-[0.63]"
+          priority
+        />
+
+        <div className="relative z-10 flex flex-col items-center lg:items-start justify-center h-full px-6 lg:px-16 gap-6 lg:gap-10 text-center lg:text-left">
+          <h1 className="text-white font-extrabold text-3xl md:text-5xl lg:text-[48px] leading-tight lg:leading-[140%] font-inter w-full lg:w-4/5">
+            Introducing Our New Menu Additions!
+          </h1>
+          <h3 className="text-white font-inter font-semibold text-lg lg:text-[24px] leading-relaxed lg:leading-[34px] w-full lg:w-3/6">
+            Explore exciting new dishes, crafted with the freshest ingredients
+            and authentic Nigerian flavors. Limited time offer!
+          </h3>
+          <button className="bg-[#FF7A18] w-full max-w-[215px] h-[54px] rounded-[10px] py-[15px] text-white font-inter font-semibold text-[1rem] leading-[24px] hover:bg-[#e66d15] transition-all">
+            Discover what’s new
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

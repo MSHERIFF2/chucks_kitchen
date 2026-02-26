@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 
 
 
+
 const island = Island_Moments({
   subsets: ["latin"],
   weight: "400",

@@ -1,7 +1,7 @@
-import Home from "@/components/home"
+import Onboarding from "@/components/onboarding"
 
 export default function Page() {
   return (
-    <Home/>
+    <Onboarding/>
   );
 }

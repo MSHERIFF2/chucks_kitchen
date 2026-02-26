@@ -33,7 +33,7 @@ export default function Navbar() {
         `}>
           <ul className="flex flex-col md:flex-row items-center gap-8 md:gap-x-8 font-inter text-[1rem] text-[#1F2937] font-medium">
             <li>
-              <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-[#FF7A18] transition-colors">Home</Link>
+              <Link href="/home" onClick={() => setIsOpen(false)} className="hover:text-[#FF7A18] transition-colors">Home</Link>
             </li>
             <li>
               <Link href="/explore" onClick={() => setIsOpen(false)} className="hover:text-[#FF7A18] transition-colors">Explore</Link>

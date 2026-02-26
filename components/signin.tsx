@@ -45,7 +45,7 @@ export default function Signin() {
             </p>
           </div>
 
-          <form className="flex flex-col gap-y-4" action="/homePage">
+          <form className="flex flex-col gap-y-4" action="/home">
             {/* Email Input */}
             <div className="flex flex-col gap-y-2">
               <label className="font-inter font-medium">Email or phone number</label>
